@@ -1,0 +1,17 @@
+created: 20200906212951351
+creator: Othy
+modified: 20200906215843721
+modifier: Othy
+tags: data
+title: Formalizator
+type: text/vnd.tiddlywiki
+
+Here is where you can find a kind of formal description of what I'm looking for. It's hard to get it right, doesn't it?
+
+* What is the core idea?
+*> To understand if the monadic scripting is truly a great way to think about scripting. Basically, it's the main idea.
+*> This may lead to a small prototype to implement the idea.
+* How embedded scripting langages are builds?
+*> Time to dive into some code to see what their guts are made of.
+* What a script is bound to?
+*> Good question

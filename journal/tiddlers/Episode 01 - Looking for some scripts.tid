@@ -1,0 +1,36 @@
+created: 20200906205222983
+creator: Othy
+modified: 20200906220218906
+modifier: Othy
+tags: episode
+title: Episode 01 - Looking for some scripts
+type: text/vnd.tiddlywiki
+
+! Introduction
+
+Every good story starts with some kind of introduction, so here some details about how this journey began.
+
+I was working on some flutter project, with my headphones keeping me out from the rest of the world, when someone interrupt me in the middle of a tought, to ask me this simple question:
+
+
+<<<
+What langage to you suggest to work as an embedded scripting langage in a C / Java app?
+<<<
+
+After some context about the real deal (context completely optional here, so let forget about it), I pushed Lua and Python as my favorite choices, but mostly Lua, due to my better knowledge of this one.
+
+Going back to my IDE, after a short glance I decided to take a break, flutter can wait. Cycling back to the question I was asking myself "is there other good langages for this kind of stuff?". As I was sipping my coffee, a great idea came in my mind: ask the community! In a matter of minutes, it was done. And something I didn't expect came out of nowhere: [[Monadic Scripting|https://www.dsi.unive.it/~orsini/documenti/MonadicScripting2.pdf]]!
+
+Shared by a great man who love OCaml and trolling other langages, this reading became a first step of a small adventure for me. Let me tell you what happened.
+
+! Formalizing the subject
+
+I wasn't able to get some time to dive a little more on what is in the paper, but as I knew my lack of knowledge about this kind of subject, I organized a meeting with someone ho can bring me some light to illuminate my path. One of the greatest advice he gave me was to refine a [[formal description|Formalizator]] of my idea. Putting words on thoughts is always a good way to make things clearer.
+
+The main idea is to understand if there is a real interest to invest into monadic scripting. The formal description will change as I will walk along this journey, as I will refine what I'm looking for.
+
+! Looking for what they did before
+
+One of my greatest principle: before doing something, look at what already exist, and how it's built.
+
+I found a [[great repository|https://github.com/dbohdan/embedded-scripting-languages]] with a beautiful list of Embedded Scripting Langages (aka ESL). A perfect place to start digging. I already selected a bunch of ESL to take a look at their source code. See you when I will emerge from this reading.

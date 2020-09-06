@@ -1,0 +1,23 @@
+created: 20200906205112491
+creator: Othy
+modified: 20200906213654888
+modifier: Othy
+tags: 
+title: In the last episodes...
+type: text/vnd.tiddlywiki
+
+! What will come next?
+
+Looking for some scripting langages to learn how they manage to be embedded, what is their secret? How do they work?
+
+! In the past...
+
+Do you want to read what happened before? Here the list:
+
+<<list-links filter:"[tag[episode]]" >>
+
+! Some important data
+
+All the great stuff I'm writing about this journey.
+
+<<list-links filter:"[tag[data]]" >>

@@ -1,0 +1,14 @@
+created: 20200907215838014
+modified: 20200907224043253
+tags: data
+title: Script call
+type: text/vnd.tiddlywiki
+
+There is some ways to call a script, and we can list them to have a great overview of the situation:
+
+; The configuration
+: The script is called at the startup of the app, and sometimes it's reloadable. It's purpose is to define the setup and all kinds of preferences that are wanted for the app to make it work the way it's needed.
+; The plugin
+: The script is attached to one or multiple entities inside the app to add new possibilities or modify what this entities can do. This kind of script are or can be called multiple times.
+; The glue
+: The script is here to fill a gap inside the app, by bringing what's missing. Uncommon, but very powerful, this script are navigating between the two other catagories, without clearly resides in one or the other.

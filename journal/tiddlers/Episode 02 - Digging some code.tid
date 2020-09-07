@@ -1,0 +1,41 @@
+created: 20200907205059519
+modified: 20200907224045611
+tags: episode
+title: Episode 02 - Digging some code
+type: text/vnd.tiddlywiki
+
+! Getting my code dirty
+
+It's time to reach the first real step of my journey: looking into what my predecessors did. So I will dig into some code, and for that I chose to explore two langages: [[Lua|https://www.lua.org/]] and [[Rhai|https://github.com/jonathandturner/rhai]].
+
+The first is the super star of the ESL, always in the game after all thi years, and still praised for its simplicity and efficiency. The second is a personal choice, totally subjective, because I love rust, and I have some experience with it (rust, not rhai), and also because there is some closed friends ([[Gluon|https://github.com/gluon-lang/gluon]] and [[Dyon|https://github.com/pistondevelopers/dyon]]) that looks to work the same way.
+
+To truly get a real grasp, I can also looking for Python and Guile, but both seems to act like Lua, especially Python which seems to have the same kind of mechanisms that Lua rely on. But to be fair, and if I find some time, I will try [[Guile|https://www.gnu.org/software/guile/]]. With Guile I will also get a quick overview to [[Kawa|https://www.gnu.org/software/kawa/]], as both are Lisp's children.
+
+! Rhai, weird name but cool stuff
+
+Starting with the coolest one, again I prefer the fancy over the wellknowed. Mostly because I want to learn how to build a lib with rust. And this is [[pretty simple indeed|https://rust-embedded.github.io/book/interoperability/rust-with-c.html]], just some configuration and we're done. There is also a very cool piece of information here: the ``[no_mangle]``, which means you can have some functions marked as kind of accessible from the outside. Our first door into the dungeon. Now time to read the [[Rhai book|https://schungx.github.io/rhai/about/index.html]].
+
+And after a couple of hours I found what I was hunting for: [[the mighty engine|https://docs.rs/rhai/0.18.3/rhai/struct.Engine.html]]. Ok, put like that it sounds weird, but let me explain. I already saw some examples in GDScript and Qt QML when I was working on professional video games, and of course some C code using lua, and as I had a vague idea of what I was seeking, I knew where to search.
+
+Rhai use a rust struct which act as a big evaluation box, with some advance functionalities. The Rhai Engine enable evaluating with a string or from a file, but also to compile the script into an AST to optimize the script execution (as it's written in the doc, to repeatedly call a script without evaluating it each time). Also, there is a way to just consume a script, like when you need to burn something down quickly do get things done. But the most important part come from all the functions that push types and other functions into the Engine, like a way to build some kind of execution environment. It's clearly a way to building a scope around the Rhai evaluation, and that's, my dear reader, is what I was looking for. With this aspect, we're diving into the real issue: building something around the [[script call|Script call]].
+
+! Different way to call a script
+
+Because a script may fullfill different use cases, there is different ways to call a script. In Rhai it's quite obvious, so I think it's time to build a list of what a script can be useful at, and in the future it'll be easy to check against this list to complete or invalidate some or all its elements.
+
+First, we have the most visible but not the most used case: ''the configuration'', when a script basically served as setting things up for an app. Very common in a very broad type of apps (the window manager [[AwesomeWM|https://awesomewm.org/]] use Lua for that, as NeoVim, and ELisp / Guile for Emacs), it tends to be called one time in the beginning, and sometimes it's reloadable, but it's only purpose is to tell the app what are the preferences for a specific user / goal / etc.
+
+The second case are the most used, with a very large majority: ''the plugin'' case is so common that it become nearly invisible, but from Unreal Engine blueprint to GIMP / Blender / Firefox / ~OpenOffice plugins, I'm pretty confident that everybody meet this case at least a hundred times in life. The plugin is quite simple: you have a entity, like an import module, a character node, or a buitin tool, there is always a need to be able to tweak it or to add new fonctionnalities. This kind of use case can take a lot of shapes, but have some common features:
+
+* link to one or multiple entities inside the app (even if it's packed, there is a specific entity or set of entities that the plugin are link to)
+* extends something from the app to add or modify this something
+* often called mutiple times in the app lifetime
+
+Taking this 3 features, the Rhai's Engine, with the compiled AST function, perfectly fill this need.
+
+The last use case is quite uncommon, but not rare: ''the glue'' can be defined by the need for a script to fill a gap inside an app. Often used as a way to extend the app, it can be easily confused with the configuration, but unlike the first case it isn't mandatory, but act as a ???
+
+Hop, putting the [[list into an entry to keep it warm and tidy for later use|Script call]]. Time to get some rest for the next episode.
+
+Note: if you want to talk about the use case list, open a PR or an issue, I'll read your point of view with real interest. Just avoid insult.
